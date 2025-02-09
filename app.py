@@ -27,7 +27,7 @@ label.pack(pady=20)
 
 
 # 创建按钮并绑定事件
-button1 = ttk.Button(root, text="运行脚本1", command=lambda: run_python_script("forOrigin.py"))
+button1 = ttk.Button(root, text="运行脚本1", command=lambda: run_python_script("Scripts/forOrigin.py"))
 button1.pack(pady=20, ipadx=10, ipady=5)
 button1.place(x=10, y=90)
 

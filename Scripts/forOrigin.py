@@ -8,25 +8,25 @@ import pyautogui
 import numpy as np
 
 from pywinauto import Application
-from screeninfo import get_monitors
+
 
 #模板图像路径
-clickToLogin_path = "components\login\clickToLogin.png"
-phone_path = "components\inGame\phone.png"
-enTrust_path = "components\inGame\enTrust.png"
-getTheEnTrust_path = "components\inGame\getTheEnTrust.png"
-getTheEnTrustAgain_path = "components\inGame\enTrustAgain.png"
-zhinan_path = "components\inGame\zhinan.png"
-tili1_path = "components\inGame\Tili1.png"
-yiqi_path = "components\inGame\yiqi.png"
-yiqi1_path = "components\inGame\yiqi1.png"
-exit_path = "components\inGame\exit.png"
-challenge_path = "components\inGame\challenge.png"
-zhiyuan_path = "components\inGame\zhiyuan.png"
-huangquan_path = "components\inGame\huangquan.png"
-enqueue_path = "components\inGame\enqueue.png"
-startChallenge_path = "components\inGame\startChanllenge.png"
-oneMoreTime_path = "components\inGame\oneMoreTime.png"
+clickToLogin_path = "../components/login/clickToLogin.png"
+phone_path = "../components/inGame/phone.png"
+enTrust_path = "../components/inGame/enTrust.png"
+getTheEnTrust_path = "../components/inGame/getTheEnTrust.png"
+getTheEnTrustAgain_path = "../components/inGame/enTrustAgain.png"
+zhinan_path = "../components/inGame/zhinan.png"
+tili1_path = "../components/inGame/Tili1.png"
+yiqi_path = "../components/inGame/yiqi.png"
+yiqi1_path = "../components/inGame/yiqi1.png"
+exit_path = "../components/inGame/exit.png"
+challenge_path = "../components/inGame/challenge.png"
+zhiyuan_path = "../components/inGame/zhiyuan.png"
+huangquan_path = "../components/inGame/huangquan.png"
+enqueue_path = "../components/inGame/enqueue.png"
+startChallenge_path = "../components/inGame/startChanllenge.png"
+oneMoreTime_path = "../components/inGame/oneMoreTime.png"
 
 
 # 游戏路径
