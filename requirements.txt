@@ -14,3 +14,4 @@ pywin32==308
 pywinauto==0.6.9
 screeninfo==0.8.1
 six==1.17.0
+ttkthemes==3.2.2

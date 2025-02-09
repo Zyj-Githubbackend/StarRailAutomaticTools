@@ -72,7 +72,7 @@ def find_and_click_image(template_path):
         result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
 
         # 找到匹配位置，阈值可以根据需要调整
-        threshold = 0.99  # 设置匹配的阈值
+        threshold = 0.9  # 设置匹配的阈值
         loc = np.where(result >= threshold)
 
         if len(loc[0]) > 0:
@@ -107,7 +107,7 @@ def find_and_click_right_of_image(template_path):
         result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
 
         # 找到匹配位置，阈值可以根据需要调整
-        threshold = 0.99  # 设置匹配的阈值
+        threshold = 0.9  # 设置匹配的阈值
         loc = np.where(result >= threshold)
 
         if len(loc[0]) > 0:
