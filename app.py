@@ -27,9 +27,17 @@ label.pack(pady=20)
 
 
 # 创建按钮并绑定事件
-button1 = ttk.Button(root, text="运行脚本1", command=lambda: run_python_script("Scripts/forOrigin.py"))
+button1 = ttk.Button(root, text="运行原版崩铁脚本", command=lambda: run_python_script("Scripts/forOrigin.py"))
 button1.pack(pady=20, ipadx=10, ipady=5)
 button1.place(x=10, y=90)
+
+button2 = ttk.Button(root, text="关闭本程序", command=lambda:exit())
+button2.pack(pady=20, ipadx=10, ipady=5)
+button2.place(x=200, y=300)
+
+button3 = ttk.Button(root, text="关闭正在运行的崩铁程序", command=lambda: run_python_script("Scripts/closeStarRail.py"))
+button3.pack(pady=20, ipadx=10, ipady=5)
+button3.place(x=10, y=150)
 
 # 设置按钮样式
 style = ttk.Style()
