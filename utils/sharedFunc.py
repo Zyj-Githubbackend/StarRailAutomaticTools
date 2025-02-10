@@ -12,14 +12,14 @@ def run_the_exe(the_path_of_game):
     subprocess.Popen(the_path_of_game)
 
 # 聚焦于程序
-def focus_the_exe(the_path_of_game):
+def focus_the_exe(the_path_of_game,key):
     while True:
         try:
             # 连接到正在运行的应用程序（假设程序已经运行）
             app = Application(backend="uia").connect(path=the_path_of_game)
 
             # 获取程序的主窗口
-            window = app.window(title_re=".*崩坏.*")  # 使用正则匹配窗口标题
+            window = app.window(title_re=f".*{key}.*")  # 使用正则匹配窗口标题
 
             # 将窗口置于最前面
             window.set_focus()  # 聚焦窗口
@@ -194,3 +194,10 @@ def kill_process_by_name(process_name):
     except subprocess.CalledProcessError as e:
         print(f"无法关闭进程 {process_name}，错误信息：{e}")
 
+# 定义按钮点击时的回调函数
+def run_python_script(script_name):
+    try:
+        subprocess.run(['python', script_name], check=True)
+        print(f"成功运行 {script_name}")
+    except subprocess.CalledProcessError as e:
+        print(f"运行 {script_name} 时出错: {e}")

@@ -3,9 +3,11 @@
 import time
 
 from utils.sharedFunc import run_the_exe, focus_the_exe, find_image_press_key, find_and_click_image, find_and_click_right_of_image,find_and_click_image_once
-from config import THE_PATH_OF_ORIGIN_GAME,THE_PATH_OF_THIS_SCRIPT
+from config import THE_PATH_OF_B_GAME,THE_PATH_OF_THIS_SCRIPT
 
-#模板图像绝对路径
+# 模板图像绝对路径
+bilibiliLogin_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/login/bilibiliLogin.png"
+startTheGame_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/login/startTheGame.png"
 clickToLogin_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/login/clickToLogin.png"
 phone_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/phone.png"
 enTrust_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/enTrust.png"
@@ -14,7 +16,7 @@ getTheEnTrustAgain_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame
 zhinan_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/zhinan.png"
 tili1_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/Tili1.png"
 yiqi_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/yiqi.png"
-yiqi1_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/yiqi1.png"
+yiqi2_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/yiqi2.png"
 exit_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/exit.png"
 challenge_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/challenge.png"
 zhiyuan_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/zhiyuan.png"
@@ -29,7 +31,7 @@ gift_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/gift.png"
 clickToClose_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/clickToClose.png"
 
 # 游戏路径
-path = THE_PATH_OF_ORIGIN_GAME
+thePath = THE_PATH_OF_B_GAME
 
 # 主函数
 DEBUG = True
@@ -38,9 +40,14 @@ DEBUG = True
 if DEBUG:
     print("----开始运行------")
     # 运行
-    run_the_exe(path)
+    run_the_exe(thePath)
 
-    # focus_the_exe(path,'崩铁')
+    # focus_the_exe(thePath,'崩坏')
+
+    # bilibili登录
+    find_and_click_image(startTheGame_path)
+    find_and_click_image(bilibiliLogin_path)
+
     # 登录
     find_and_click_image(clickToLogin_path)
     # 进入手机
@@ -49,9 +56,11 @@ if DEBUG:
     ClickList_1 = [enTrust_path,getTheEnTrust_path,getTheEnTrustAgain_path,exit_path,zhinan_path,tili1_path,yiqi_path]
 
     for click in ClickList_1:
+        if click == exit_path:
+            time.sleep(2)
         find_and_click_image(click)
 
-    find_and_click_right_of_image(yiqi1_path)
+    find_and_click_right_of_image(yiqi2_path)
 
     #刷遗器
     ClickList_2 = [challenge_path,zhiyuan_path,huangquan_path,enqueue_path,startChallenge_path]
@@ -67,7 +76,10 @@ if DEBUG:
             find_and_click_image(exitTheGame_path)
             break
 
-    find_and_click_image(exit_path)
+    # time.sleep(1)
+    # pyautogui.press('esc')
+
+    find_image_press_key(exit_path, 'esc')
 
     find_image_press_key(phone_path, 'esc')
 
@@ -90,9 +102,8 @@ if DEBUG:
 
         time.sleep(0.5)
 
-        find_and_click_image_once(clickToClose_path)
+        if find_and_click_image_once(clickToClose_path):
+            break
 
         i += 1
 
-else:
-    focus_the_exe(path)

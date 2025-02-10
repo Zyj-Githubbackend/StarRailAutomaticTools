@@ -1,14 +1,9 @@
+import subprocess
 import tkinter as tk
 from tkinter import ttk
-import subprocess
+from utils.sharedFunc import run_python_script
 
-# 定义按钮点击时的回调函数
-def run_python_script(script_name):
-    try:
-        subprocess.run(['python', script_name], check=True)
-        print(f"成功运行 {script_name}")
-    except subprocess.CalledProcessError as e:
-        print(f"运行 {script_name} 时出错: {e}")
+
 
 # 创建主窗口
 root = tk.Tk()
@@ -31,9 +26,13 @@ button1 = ttk.Button(root, text="运行原版崩铁脚本", command=lambda: run_
 button1.pack(pady=20, ipadx=10, ipady=5)
 button1.place(x=10, y=90)
 
+button4 = ttk.Button(root, text="运行B服崩铁脚本", command=lambda: run_python_script("Scripts/forBilibili.py"))
+button4.pack(pady=20, ipadx=10, ipady=5)
+button4.place(x=250, y=90)
+
 button2 = ttk.Button(root, text="关闭本程序", command=lambda:exit())
 button2.pack(pady=20, ipadx=10, ipady=5)
-button2.place(x=200, y=300)
+button2.place(x=150, y=300)
 
 button3 = ttk.Button(root, text="关闭正在运行的崩铁程序", command=lambda: run_python_script("Scripts/closeStarRail.py"))
 button3.pack(pady=20, ipadx=10, ipady=5)
