@@ -20,6 +20,9 @@
 pip install -r requirements.txt
 ```
 
+#### 2. 配置config.py
+查看文件修改内容
+
 #### 2. 启动应用程序
 安装依赖后，使用以下命令启动图形界面：
 
