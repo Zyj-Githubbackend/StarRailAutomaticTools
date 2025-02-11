@@ -49,6 +49,8 @@ if DEBUG:
     ClickList_1 = [enTrust_path,getTheEnTrust_path,getTheEnTrustAgain_path,exit_path,zhinan_path,tili1_path,yiqi_path]
 
     for click in ClickList_1:
+        if click == exit_path:
+            time.sleep(3)
         find_and_click_image(click)
 
     find_and_click_right_of_image(yiqi1_path)
