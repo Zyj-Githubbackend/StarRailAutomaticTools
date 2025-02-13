@@ -9,10 +9,12 @@ from config import THE_PATH_OF_ORIGIN_GAME,THE_PATH_OF_THIS_SCRIPT
 clickToLogin_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/login/clickToLogin.png"
 phone_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/phone.png"
 enTrust_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/enTrust.png"
+enTrusting_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/entrusting.png"
 getTheEnTrust_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/getTheEnTrust.png"
 getTheEnTrustAgain_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/enTrustAgain.png"
 zhinan_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/zhinan.png"
 tili1_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/Tili1.png"
+tili2_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/Tili2.png"
 yiqi_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/yiqi.png"
 yiqi1_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/yiqi1.png"
 exit_path = f"{THE_PATH_OF_THIS_SCRIPT}/StarRail/components/inGame/exit.png"
@@ -46,12 +48,24 @@ if DEBUG:
     # 进入手机
     find_image_press_key(phone_path,'esc')
 
-    ClickList_1 = [enTrust_path,getTheEnTrust_path,getTheEnTrustAgain_path,exit_path,zhinan_path,tili1_path,yiqi_path]
+    find_and_click_image(enTrust_path)
+    while True:
+        if find_and_click_image_once(enTrusting_path):
+            break
+        if find_and_click_image_once(getTheEnTrust_path):
+            find_and_click_image(getTheEnTrustAgain_path)
+            time.sleep(2)
+            break
 
-    for click in ClickList_1:
-        if click == exit_path:
-            time.sleep(3)
-        find_and_click_image(click)
+    find_and_click_image(exit_path)
+    find_and_click_image(zhinan_path)
+    while True:
+        if find_and_click_image_once(tili1_path):
+            break
+        if find_and_click_image_once(tili2_path):
+            break
+
+    find_and_click_image(yiqi_path)
 
     find_and_click_right_of_image(yiqi1_path)
 
